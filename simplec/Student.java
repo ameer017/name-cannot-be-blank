@@ -27,12 +27,15 @@ public class Student {
     System.out.println(studentName + " is to read anything!");
   }
 
-  // getters/accessors
+  // ================getters/accessors=================
   public String getStudentName() { return studentName; }
 
-  // setters/mutators
+  public int getAge() { return age; }
+
+  // ================setters/mutators=================
   public void setStudentName(String name) { studentName = name; }
 
+  // ================other methods=================
   public void learn(String course) {
     System.out.println(studentName + " is learning " + course);
   }
@@ -47,5 +50,4 @@ public class Student {
     return "Student Name: " + studentName + "\nStudent ID: " + studentID +
         "\nDepartment: " + department + "\nAge: " + age + "\nCGPA: " + cgpa;
   }
-  
 }

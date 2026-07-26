@@ -9,10 +9,18 @@ public class GraduateStudent extends Student {
     this.thesisTitle = thesisTitle;
   }
 
-  @Override
-  public String toString() {
-    return super.toString() + "\nThesis Title: " + thesisTitle;
+  public void read() {
+    System.out.println("I'm taking my breakfast now!");
+    super.read();
   }
 
+  public void makePresentation() {
+    System.out.println("Graduate Student is making a presentation!");
+  }
 
+  @Override
+  public String toString() {
+    System.out.println("Accessing age: " + getAge());
+    return super.toString() + "\nThesis Title: " + thesisTitle;
+  }
 }
