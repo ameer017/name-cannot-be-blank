@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>MVC Class Diagram</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 24px;
+      background: #ffffff;
+      font-family: "Times New Roman", Times, serif;
+    }
+    h1 {
+      font-size: 20px;
+      text-align: center;
+      margin: 0 0 12px 0;
+    }
+    .diagram {
+      display: flex;
+      justify-content: center;
+    }
+  </style>
+</head>
+<body>
+  <h1>Figure 1. Class diagram of the Group Project Management System</h1>
+  <div class="diagram">
+    <pre class="mermaid">
+flowchart LR
+    subgraph Controller["Controller"]
+        Main --> AppController
+    end
+
+    subgraph View["View"]
+        MainFrame --> StudentsGroupsPanel
+        MainFrame --> TasksPanel
+        MainFrame --> ReportsPanel
+        StudentsGroupsPanel --> StudentDialog
+    end
+
+    subgraph Model["Model"]
+        DataStore --> Student
+        DataStore --> Group
+        DataStore --> Responsibility
+        Group --> Student
+        Responsibility --> Group
+        Responsibility --> Student
+    end
+
+    AppController --> MainFrame
+    MainFrame --> DataStore
+    StudentsGroupsPanel --> DataStore
+    TasksPanel --> DataStore
+    ReportsPanel --> DataStore
+    </pre>
+  </div>
+  <script type="module">
+    import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs";
+    mermaid.initialize({ startOnLoad: true, theme: "neutral", securityLevel: "strict" });
+  </script>
+</body>
+</html>

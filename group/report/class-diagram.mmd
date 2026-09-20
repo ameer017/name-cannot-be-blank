@@ -1,0 +1,27 @@
+%%{init: {'theme': 'neutral', 'themeVariables': { 'background': '#ffffff' }}}%%
+flowchart LR
+    subgraph Controller["Controller"]
+        Main --> AppController
+    end
+
+    subgraph View["View"]
+        MainFrame --> StudentsGroupsPanel
+        MainFrame --> TasksPanel
+        MainFrame --> ReportsPanel
+        StudentsGroupsPanel --> StudentDialog
+    end
+
+    subgraph Model["Model"]
+        DataStore --> Student
+        DataStore --> Group
+        DataStore --> Responsibility
+        Group --> Student
+        Responsibility --> Group
+        Responsibility --> Student
+    end
+
+    AppController --> MainFrame
+    MainFrame --> DataStore
+    StudentsGroupsPanel --> DataStore
+    TasksPanel --> DataStore
+    ReportsPanel --> DataStore
